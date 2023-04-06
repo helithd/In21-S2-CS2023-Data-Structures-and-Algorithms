@@ -1,75 +1,71 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
 
-class Node {
-public:
-    int data; // Data to be stored in the node
-    Node* next; // Pointer to the next node in the linked list
-
-    Node(int data) {
-        this->data = data;
-        this->next = nullptr;
-    }
-};
-
 class Stack {
-    Node* top; // Pointer to the top node of the stack
+    int capacity;
+    int top;
+    int* stack;
 
 public:
-    Stack(int i) {
-        top = nullptr;
+    Stack(int max_size) {
+        capacity = max_size;
+        top = -1;
+        stack = new int[capacity];
     }
 
     void push(int data) {
-        Node* newNode = new Node(data);
-        newNode->next = top;
-        top = newNode;
+        if (isFull()) {
+            cout << "Stack Overflow" << endl;
+        }
+        else {
+            top++;
+            stack[top] = data;
+        }
     }
 
     int pop() {
         if (isEmpty()) {
             cout << "Stack Underflow" << endl;
-            return -1; // Return -1 to indicate an error
+            return -1;
         }
         else {
-            int data = top->data;
-            Node* temp = top;
-            top = top->next;
-            delete temp;
+            int data = stack[top];
+            top--;
             return data;
         }
     }
 
     bool isEmpty() {
-        return (top == nullptr);
+        return (top == -1);
     }
 
+    bool isFull() {
+        return (top == capacity - 1);
+    }
     int stackTop() {
         if (isEmpty()) {
             cout << "Stack Underflow" << endl;
-            return -1; // Return -1 to indicate an error
+            return -1;
         }
         else {
-            return top->data;
+            return stack[top];
         }
     }
+
 
     void display() {
         if (isEmpty()) {
             cout << "Stack Underflow" << endl;
         }
         else {
-            Node* temp = top;
-            while (temp != nullptr) {
-                cout << temp->data << endl;
-                temp = temp->next;
+            for (int i = top; i >= 0; i--) {
+                cout << stack[i] << endl;
             }
         }
     }
     ~Stack() {
-        while (!isEmpty()) {
-            pop(); // Deallocate the memory for all the nodes in the stack
-        }
+        delete[] stack; // Deallocate the memory allocated for the stack
     }
 
 };
