@@ -1,0 +1,3 @@
+/Users/helithdulina/Desktop/C++/stack using array/cmake-build-debug/CMakeFiles/stack_using_array.dir
+/Users/helithdulina/Desktop/C++/stack using array/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/helithdulina/Desktop/C++/stack using array/cmake-build-debug/CMakeFiles/rebuild_cache.dir
