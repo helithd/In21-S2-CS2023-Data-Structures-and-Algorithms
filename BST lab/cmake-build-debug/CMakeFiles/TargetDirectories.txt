@@ -1,0 +1,3 @@
+/Users/helithdulina/Desktop/C++/BST lab/cmake-build-debug/CMakeFiles/BST_lab.dir
+/Users/helithdulina/Desktop/C++/BST lab/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/helithdulina/Desktop/C++/BST lab/cmake-build-debug/CMakeFiles/rebuild_cache.dir
